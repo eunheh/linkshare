@@ -24,7 +24,8 @@ Route.post('/login', 'UserController.login')
 Route.get('/auth_test', 'UserController.auth_test').middleware('auth')
 
 Route.post('/post', 'PostController.submit').middleware('auth')
-Route.get('/post', 'PostController.retrievePost')
+Route.get('/post/:id', 'PostController.index')
+Route.delete('/post/:id', 'PostController.delete').middleware('auth')
 
 Route.post('/comment', 'CommentController.comment')
-Route.post('/comment', 'CommentController.retrieveComment')
+Route.post('/comment/id', 'CommentController.index')

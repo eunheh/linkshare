@@ -19,7 +19,7 @@ class UserController {
      try {
        let user = yield User.findBy('username', input.username)
        let verify = yield Hash.verify(input.password, user.password)
-       if (!verify) { throw new Error('Password mismatch')}
+       if (!verify) { throw new Error()}
 
        user.access_token = yield request.auth.generate(user)
 
