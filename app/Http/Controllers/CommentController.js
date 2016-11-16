@@ -1,10 +1,13 @@
 'use strict'
 
+const Comment = use("App/Model/Comment")
+
 class CommentController {
 
   * comment (request, response) {
     let postId = request.param('id')
     let content = request.only('content')
+    content.post_id = postId
     let user = request.authUser
 
     if (user){

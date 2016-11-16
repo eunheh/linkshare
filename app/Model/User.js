@@ -12,11 +12,11 @@ class User extends Lucid {
     return this.hasMany('App/Model/Token')
   }
 
-  post () {
+  posts () {
     return this.hasMany('App/Model/Post')
   }
 
-  comment () {
+  comments () {
     return this.hasMany('App/Model/Comment')
   }
 

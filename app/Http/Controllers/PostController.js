@@ -26,18 +26,18 @@ class PostController {
     response.json(post)
   }
 
-  // * delete (request, response) {
-  //   let postId = request.param('id')
-  //   let removePost = yield Post.findBy('id', postId)
-  //   let user = request.authUser
-  //
-  //   if (user){
-  //     let post = yield Post.del()
-  //     response.json(removePost)
-  //   } else {
-  //     response.status(403).json({ error: "User unauthorized" })
-  //   }
-  // }
+  * delete (request, response) {
+    let user = request.authUser
+    let postId = request.param('post_id')
+    let post = yield Post.query().where('id', postId)
+
+    if (user.id = postId){
+      post = yield Post.query().where('id', postId).del()
+      response.json(post)
+    } else {
+      response.status(403).json({ error: "User unauthorized" })
+    }
+  }
 }
 
 module.exports = PostController

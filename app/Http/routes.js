@@ -27,5 +27,5 @@ Route.post('/post', 'PostController.submit').middleware('auth')
 Route.get('/post/:id', 'PostController.index')
 Route.delete('/post/:id', 'PostController.delete').middleware('auth')
 
-Route.post('/comment', 'CommentController.comment')
-Route.post('/comment/id', 'CommentController.index')
+Route.post('/comment/:id', 'CommentController.comment').middleware('auth')
+Route.get('/comment/:id', 'CommentController.index')
