@@ -28,12 +28,12 @@ class PostController {
 
   * delete (request, response) {
     let user = request.authUser
-    let postId = request.param('post_id')
-    let post = yield Post.query().where('id', postId)
-
-    if (user.id = postId){
-      post = yield Post.query().where('id', postId).del()
-      response.json(post)
+    let postId = request.param('id')
+    let post = yield Post.query().where('user_id', user.id).andWhere('id', postId)
+    console.log(post, post.id, typeof post.id)
+    if (post){
+      yield Post.query().where('id', postId).del()
+      response.status(202).json({success: "Deleted"})
     } else {
       response.status(403).json({ error: "User unauthorized" })
     }

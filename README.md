@@ -24,3 +24,6 @@ Allows the user to post a link. Additional data/parameters are:
 
 Allows the user to post a link. Additional data/parameters are:
 * content - string
+
+Following is a link to the linkshare database:
+[linkshare](https://enigmatic-garden-47419.herokuapp.com/)
